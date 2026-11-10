@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Projects</h1>
+<div class="grid">
+  {% for p in projects %}
+  <div class="card">
+    <h3>{{ p.title }}</h3>
+    <p>{{ p.desc }}</p>
+    <a href="{{ p.link }}">View on GitHub →</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
