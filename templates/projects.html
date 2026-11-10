@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Projects</h1>
+<h1 class="page-title reveal">My <span class="gradient-text">Projects</span></h1>
 <div class="grid">
   {% for p in projects %}
-  <div class="card">
-    <h3>{{ p.title }}</h3>
-    <p>{{ p.desc }}</p>
-    <a href="{{ p.link }}">View on GitHub →</a>
+  <div class="card glass tilt reveal">
+    <div class="card-inner">
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.desc }}</p>
+      <div class="tags">
+        {% for t in p.tags or [] %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+      <a class="card-link" href="{{ p.link }}">View on GitHub →</a>
+    </div>
   </div>
   {% endfor %}
 </div>

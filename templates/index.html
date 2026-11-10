@@ -1,8 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="hero">
-  <h1>Hi, I'm Ariana 👋</h1>
-  <p>Student at VIT and a Python developer building web apps and digital products.</p>
-  <a class="btn" href="{{ url_for('projects') }}">See my work</a>
+  <div class="hero-text reveal">
+    <p class="eyebrow">Python Developer · Student</p>
+    <h1>Hi, I'm <span class="gradient-text">Ariana</span></h1>
+    <p class="sub">I build web apps and digital products with Python, Flask, and a love for clean design.</p>
+    <a class="btn" href="{{ url_for('projects') }}">See my work</a>
+    <a class="btn ghost" href="{{ url_for('contact') }}">Contact me</a>
+  </div>
+
+  <div class="scene">
+    <div class="cube">
+      <div class="face front">Python</div>
+      <div class="face back">Flask</div>
+      <div class="face right">HTML</div>
+      <div class="face left">CSS</div>
+      <div class="face top">JS</div>
+      <div class="face bottom">Git</div>
+    </div>
+  </div>
+</section>
+
+<section class="skills reveal">
+  <h2>Skills</h2>
+  <div class="chips">
+    <span class="chip glass">Python</span>
+    <span class="chip glass">Flask</span>
+    <span class="chip glass">HTML & CSS</span>
+    <span class="chip glass">JavaScript</span>
+    <span class="chip glass">Git & GitHub</span>
+    <span class="chip glass">SQL</span>
+  </div>
 </section>
 {% endblock %}

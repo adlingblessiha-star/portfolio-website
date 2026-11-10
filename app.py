@@ -4,9 +4,9 @@ app = Flask(__name__)
 app.secret_key = "change-this-to-something-random"
 
 PROJECTS = [
-    {"title": "Task Manager", "desc": "CRUD app with Flask and SQLite.", "link": "#"},
-    {"title": "Weather App", "desc": "Live weather using a REST API.", "link": "#"},
-    {"title": "Data Analysis", "desc": "Insights from a real dataset.", "link": "#"},
+    {"title": "Task Manager", "desc": "CRUD app with Flask and SQLite.", "link": "#", "tags": ["Flask", "SQLite"]},
+    {"title": "Weather App", "desc": "Live weather using a REST API.", "link": "#", "tags": ["API", "Python"]},
+    {"title": "Data Analysis", "desc": "Insights from a real dataset.", "link": "#", "tags": ["Pandas", "Matplotlib"]},
 ]
 
 @app.route("/")
