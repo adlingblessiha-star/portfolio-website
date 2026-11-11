@@ -30,15 +30,15 @@
       <a href="{{ url_for('contact') }}" {% if request.endpoint == 'contact' %}class="active"{% endif %}>Contact</a>
     </nav>
 
-    <div class="theme-switch" role="group" aria-label="Choose a theme">
-      <button type="button" data-set-theme="light" title="Light" aria-label="Light theme">🌸</button>
-      <button type="button" data-set-theme="dark" title="Dark" aria-label="Dark theme">🌙</button>
-      <button type="button" data-set-theme="glow" title="Glow" aria-label="Glowing glass theme">✨</button>
-    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-expanded="false" aria-controls="themePanel">
+      <span id="themeBtnEmoji" aria-hidden="true">🎨</span><span class="theme-btn-label">Themes</span>
+    </button>
 
     <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links">
       <span></span><span></span><span></span>
     </button>
+
+    <div class="theme-panel" id="themePanel" role="dialog" aria-label="Choose a theme"></div>
   </header>
 
   {% with messages = get_flashed_messages() %}
