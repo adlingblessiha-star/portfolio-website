@@ -1,35 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ariana | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ariana ✿ Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    /* apply the saved theme before the page paints (no flash) */
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
 </head>
 <body>
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="blob b3"></div>
-  <div class="cursor-glow"></div>
+  <div class="bg" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div id="stars"></div>
+  </div>
 
-  <nav class="glass nav">
-    <span class="logo">Ariana<span>.</span></span>
-    <div class="links">
-      <a href="{{ url_for('home') }}">Home</a>
-      <a href="{{ url_for('projects') }}">Projects</a>
-      <a href="{{ url_for('contact') }}">Contact</a>
+  <header class="nav glass">
+    <a class="logo" href="{{ url_for('home') }}">Ariana<span>✿</span></a>
+
+    <nav class="links" id="links" aria-label="Main">
+      <a href="{{ url_for('home') }}" {% if request.endpoint == 'home' %}class="active"{% endif %}>Home</a>
+      <a href="{{ url_for('projects') }}" {% if request.endpoint == 'projects' %}class="active"{% endif %}>Projects</a>
+      <a href="{{ url_for('contact') }}" {% if request.endpoint == 'contact' %}class="active"{% endif %}>Contact</a>
+    </nav>
+
+    <div class="theme-switch" role="group" aria-label="Choose a theme">
+      <button type="button" data-set-theme="light" title="Light" aria-label="Light theme">🌸</button>
+      <button type="button" data-set-theme="dark" title="Dark" aria-label="Dark theme">🌙</button>
+      <button type="button" data-set-theme="glow" title="Glow" aria-label="Glowing glass theme">✨</button>
     </div>
-  </nav>
+
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
   {% with messages = get_flashed_messages() %}
-    {% for m in messages %}<p class="flash glass">{{ m }}</p>{% endfor %}
+    {% for m in messages %}<p class="flash glass" role="status">{{ m }}</p>{% endfor %}
   {% endwith %}
 
   <main>{% block content %}{% endblock %}</main>
 
-  <footer>© 2026 Ariana</footer>
+  <footer>made with 💖 and Flask</footer>
+
+  <!-- Mochi, the cursor-following cat. Rename or redraw it however you like! -->
+  <div class="mascot" id="mascot" role="img" aria-label="Mochi, a little cat mascot">
+    <span class="bubble" id="bubble">hi! 💕</span>
+    <svg viewBox="0 0 120 112" width="86" height="80" class="cat">
+      <path d="M18 44 L26 8 L54 30 Z" fill="#fff8f3" stroke="#5b4565" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M102 44 L94 8 L66 30 Z" fill="#fff8f3" stroke="#5b4565" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M27 36 L30 19 L44 30 Z" fill="#ffb3cf"/>
+      <path d="M93 36 L90 19 L76 30 Z" fill="#ffb3cf"/>
+      <path d="M36 17 L24 10 L26 25 Z" fill="#ff7aa9"/>
+      <path d="M36 17 L48 10 L48 25 Z" fill="#ff7aa9"/>
+      <circle cx="36" cy="17" r="3.6" fill="#ff4f8b"/>
+      <ellipse cx="60" cy="66" rx="46" ry="38" fill="#fff8f3" stroke="#5b4565" stroke-width="3.5"/>
+      <circle cx="42" cy="62" r="10" fill="#fff" stroke="#5b4565" stroke-width="2.5"/>
+      <circle cx="78" cy="62" r="10" fill="#fff" stroke="#5b4565" stroke-width="2.5"/>
+      <circle class="pupil" cx="42" cy="62" r="5.5" fill="#3b2a48"/>
+      <circle class="pupil" cx="78" cy="62" r="5.5" fill="#3b2a48"/>
+      <ellipse cx="27" cy="79" rx="8" ry="5" fill="#ffa3c6" opacity=".7"/>
+      <ellipse cx="93" cy="79" rx="8" ry="5" fill="#ffa3c6" opacity=".7"/>
+      <path d="M57 72 L63 72 L60 75.5 Z" fill="#ff7aa9"/>
+      <path d="M53 79 Q56.5 84 60 79 Q63.5 84 67 79" fill="none" stroke="#5b4565" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

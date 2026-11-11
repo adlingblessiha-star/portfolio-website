@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="page-title reveal">Get in <span class="gradient-text">touch</span></h1>
-<form method="POST" class="glass form reveal">
-  <input type="text" name="name" placeholder="Your name" required>
-  <textarea name="message" placeholder="Your message" required></textarea>
+<div class="page-head" data-enter>
+  <h1 class="letters" data-letters>Say hello</h1>
+  <p class="note">I read every message 💌</p>
+</div>
+
+<form method="POST" class="form glass">
+  <label for="name">Your name</label>
+  <input id="name" type="text" name="name" placeholder="Ada Lovelace" required>
+
+  <label for="message">Your message</label>
+  <textarea id="message" name="message" placeholder="Tell me about your idea..." required></textarea>
+
   <button class="btn" type="submit">Send message</button>
 </form>
+
+<div class="socials">
+  <!-- Change the email below to your own! -->
+  <a class="chip glass" href="mailto:your-email@example.com">✉️ Email me</a>
+  <a class="chip glass" href="https://github.com/adlingblessiha-star" target="_blank" rel="noopener">🐙 GitHub</a>
+</div>
 {% endblock %}

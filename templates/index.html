@@ -1,35 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
+
 <section class="hero">
-  <div class="hero-text reveal">
-    <p class="eyebrow">Python Developer · Student</p>
-    <h1>Hi, I'm <span class="gradient-text">Ariana</span></h1>
-    <p class="sub">I build web apps and digital products with Python, Flask, and a love for clean design.</p>
-    <a class="btn" href="{{ url_for('projects') }}">See my work</a>
-    <a class="btn ghost" href="{{ url_for('contact') }}">Contact me</a>
+  <div class="hero-text">
+    <p class="note" data-enter style="--d:.05s">hello, world!</p>
+    <h1 class="letters" data-letters data-enter style="--d:.15s">Hi, I'm Ariana ✿</h1>
+    <p class="typed-line" data-enter style="--d:.3s">I'm a <span id="typed">Python developer</span><span class="caret" aria-hidden="true"></span></p>
+    <p class="sub" data-enter style="--d:.4s">
+      I'm a student at VIT who turns ideas into Python and web projects, digital products, and a little bit of magic.
+    </p>
+    <div class="cta" data-enter style="--d:.5s">
+      <a class="btn" href="{{ url_for('projects') }}">See my projects</a>
+      <a class="btn ghost glass" href="{{ url_for('contact') }}">Say hello</a>
+    </div>
   </div>
 
-  <div class="scene">
-    <div class="cube">
-      <div class="face front">Python</div>
-      <div class="face back">Flask</div>
-      <div class="face right">HTML</div>
-      <div class="face left">CSS</div>
-      <div class="face top">JS</div>
-      <div class="face bottom">Git</div>
+  <div class="hero-art" data-enter style="--d:.35s">
+    <div class="book-scene">
+      <div class="book" id="book" aria-hidden="true">
+        <div class="b-face b-front"><span>Ariana's<br>Story</span><small>chapter one</small></div>
+        <div class="b-face b-back"></div>
+        <div class="b-face b-spine"></div>
+        <div class="b-face b-pages"></div>
+        <div class="b-face b-top"></div>
+        <div class="b-face b-bottom"></div>
+      </div>
+      <div class="book-shadow"></div>
     </div>
+
+    <!-- Stickers: drag them anywhere! -->
+    <div class="sticker" data-drag aria-hidden="true" style="top:6%;left:6%;--rot:-12deg">🌸</div>
+    <div class="sticker" data-drag aria-hidden="true" style="top:10%;right:4%;--rot:10deg">🐍</div>
+    <div class="sticker" data-drag aria-hidden="true" style="bottom:16%;left:2%;--rot:8deg">📚</div>
+    <div class="sticker" data-drag aria-hidden="true" style="bottom:6%;right:8%;--rot:-8deg">✨</div>
   </div>
 </section>
 
-<section class="skills reveal">
-  <h2>Skills</h2>
+<section class="about">
+  <h2 class="section-title">A little about me</h2>
+  <div class="facts">
+    <div class="fact glass tilt"><span class="emoji" aria-hidden="true">🎓</span><h3>Student at VIT</h3><p>Learning something new every week, one project at a time.</p></div>
+    <div class="fact glass tilt"><span class="emoji" aria-hidden="true">🐍</span><h3>Python and Flask</h3><p>I build web apps and practice by shipping them to GitHub.</p></div>
+    <div class="fact glass tilt"><span class="emoji" aria-hidden="true">🛍️</span><h3>Digital products</h3><p>Curious about creators, content, and making things people love.</p></div>
+  </div>
+</section>
+
+<section class="skills">
+  <h2 class="section-title">Things I work with</h2>
   <div class="chips">
     <span class="chip glass">Python</span>
     <span class="chip glass">Flask</span>
-    <span class="chip glass">HTML & CSS</span>
+    <span class="chip glass">HTML and CSS</span>
     <span class="chip glass">JavaScript</span>
-    <span class="chip glass">Git & GitHub</span>
+    <span class="chip glass">Git and GitHub</span>
     <span class="chip glass">SQL</span>
   </div>
 </section>
+
+<section class="band glass">
+  <h2>Want to build something together?</h2>
+  <p>Tell me about your idea, I'd love to hear it.</p>
+  <a class="btn" href="{{ url_for('contact') }}">Send me a message</a>
+</section>
+
 {% endblock %}
